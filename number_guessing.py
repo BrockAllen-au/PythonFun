@@ -22,13 +22,13 @@ while game_active:
             if guess <= 0 or guess > 1000:
                 print("Please enter a number from 1 to 1,000")
             elif guess < number:
-                print("Too low! Try a bigger number")
+                print("Too low! Try a bigger number\n")
                 guesses += 1
             elif guess > number:
-                print("Too big! Try a lower number")
+                print("Too big! Try a lower number\n")
                 guesses += 1
         except:
-            print("Please enter a valid whole number only.")
+            print("Please enter a valid whole number only.\n")
 
     guesses += 1
     print(f"Well done! You guessed it! The number I was thinking of was {number}!")
@@ -45,7 +45,18 @@ while game_active:
         print("Thanks for playing!")
         print(f"You played a total of {games_played} games and made {total_guesses} total guesses!")
         accuracy = games_played / total_guesses * 100
-        print(f"That's a guessing accuracy of: {round(accuracy,2)}% !")
+        if accuracy == 100:
+            print(f"Holy shit! How lucky are you?! Guessing accuracy of {round(accuracy,2)}%!")
+        elif accuracy < 100 and accuracy > 80:
+            print(f"Wowee! You're pretty good at this whole guessing thing ha!?\nGuess Accuracy: {round(accuracy,2)}%!")
+        elif accuracy < 80 and accuracy > 50:
+            print(f"Eh you're an alright guesser I suppose. Guess accuracy: {round(accuracy,2)}%")
+        elif accuracy < 50 and accuracy > 20:
+            print(f"What grade did you drop out of school?! My 3 year old niece can guess better than you!"
+                  f"\nGuess accuracy: {round(accuracy,2)}%")
+        elif accuracy < 20:
+            print(f"You're about as useful as a cock flavoured lollipop!"
+                  f"\nA measly guess accuracy of {round(accuracy,2)}%!")
         time.sleep(5)
         game_active = False
     else:
